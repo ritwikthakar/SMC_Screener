@@ -128,7 +128,7 @@ def detect_choc(df, lookback=5):
 # ==============================
 def analyze_ticker(ticker):
     try:
-        df = yf.download(ticker, period="6mo", interval="1d", progress=False)
+        df = yf.download(ticker, period="6mo", interval="1h", progress=False)
         if df.empty:
             return None
         smc_sig, smc_reason = generate_smc_signal(df)
@@ -218,3 +218,4 @@ st.download_button(
     file_name="filtered_smc_screener.csv",
     mime="text/csv"
 )
+
